@@ -1,0 +1,6 @@
+<!--logs.wxml-->
+<view class="container log-list">
+    <div id="stage">
+      <canvas id="fglayer"></canvas>
+    </div>
+</view>

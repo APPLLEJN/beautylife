@@ -1,0 +1,18 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <div class="wrapper">
+    <canvas class="canvas" canvas-id="bglayer" disable-scroll="true" style="height: {{height}}px; background-image: url('{{bg}}')" bindtouchstart="tap"></canvas>
+    <image id="bg" src="{{bg}}" mode="widthFix"  bindload="imageLoad"/>
+  </div>
+  <div class="choose-wrapper">
+    <p>请选择：</p>
+    <div class="icon-wrapper">
+      <div class="icon" bind:tap="addShit">
+        <image class="shit" src="/images/shit.png" mode="widthFix" alt=""/>
+      </div>
+      <div class="icon" bind:tap="addChong">
+        <image src="/images/zhanglang.png" mode="widthFix" alt=""/>
+      </div>
+    </div>
+  </div>
+</view>
