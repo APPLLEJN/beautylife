@@ -26,6 +26,7 @@
   bottom: 10%;
   display: flex;
   flex-direction: column;
+  z-index: 100;
 }
 
 .choose-wrapper .icon-wrapper {

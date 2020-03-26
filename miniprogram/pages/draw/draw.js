@@ -56,7 +56,7 @@ Page({
     this.flag = true;
     this.isShit = true;
   },
-  throwShit: function (x_e, y_e) {
+  throwShit: async function (x_e, y_e) {
     const shit = new Sprite('../../images/shit.png');
     const { width, height } = this.data
     const posArray = [[-100, -100], [this.toRpx(width), -100], [-100, this.toRpx(height)], [this.toRpx(width) + 100, this.toRpx(height) + 100]]
@@ -69,14 +69,27 @@ Page({
       zIndex: 200,
     });
     this.layer.append(shit);
-    shit.animate([
+    await shit.animate([
       {x, y, scale: 1},
-      {x: this.toRpx(x_e), y: this.toRpx(y_e), scale: 2, textures: '../../images/shitend.png', opacity: 0.8},
+      {x: this.toRpx(x_e), y: this.toRpx(y_e), scale: 1.5},
     ], {
       delay: 100,
-      duration: 1000,
+      duration: 800,
       easing: 'ease-in',
       fill: 'forwards',
+    }).finished;
+    this.layer.remove(shit)
+    const shit2 = new Sprite('../../images/shitend.png');
+    shit2.attr({
+      anchor: [0.5, 0.5],
+      pos: [this.toRpx(x_e), this.toRpx(y_e)],
+      size: [100, 100],
+      zIndex: 200,
+    });
+    this.layer.append(shit2);
+    shit2.attr({anchor: [0, 0]})
+    shit2.transition(1.0).attr({
+      scale: [1.0, 1.2]
     });
   },
   addChong: function() {
