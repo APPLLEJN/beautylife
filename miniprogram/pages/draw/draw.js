@@ -81,15 +81,16 @@ Page({
     this.layer.remove(shit)
     const shit2 = new Sprite('../../images/shitend.png');
     shit2.attr({
-      anchor: [0.5, 0.5],
-      pos: [this.toRpx(x_e), this.toRpx(y_e)],
+      anchor: [0, 0],
+      pos: [this.toRpx(x_e) - 50, this.toRpx(y_e) - 50],
       size: [100, 100],
       zIndex: 200,
     });
     this.layer.append(shit2);
-    shit2.attr({anchor: [0, 0]})
-    shit2.transition(1.0).attr({
-      scale: [1.0, 1.2]
+    const radom = Math.abs(Math.random() - 0.5)
+    shit2.transition(0.8).attr({
+      scale: [1.0, 1 + radom],
+      opacity: radom + 0.6,
     });
   },
   addChong: function() {
